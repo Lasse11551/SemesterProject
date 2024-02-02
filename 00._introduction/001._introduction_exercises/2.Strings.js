@@ -48,7 +48,9 @@ console.log(average.toFixed(5))
 const letters = "abc";
 // Get me the character "c"
 
-console.log(letters.charAt(2))
+const charC = letters[2];
+
+console.log(charC)
 
 
 
