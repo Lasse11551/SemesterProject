@@ -4,7 +4,7 @@ const myName = "Lasse";
 
 const me = {};
 me.name = myName;
-console.log(me);
+//console.log(me);
 //const is constant NOT in the value but in the assignment
 //meaning that it cannot be reassigned and thus also HAS to be assigned
 
@@ -19,4 +19,13 @@ hobbies.push("sleeping");
 //hobbies = ""; man kan ikke ændre datatypen på en const 
 
 me.hobbies = hobbies;
-console.log(me);
+//console.log(me);
+
+//Types in JS: number, string, boolean, null, undefined, symbol, bigint
+
+//Object: object, arrays, date
+
+//type coercion
+
+//We ALWAYS use strict equality checks:
+// === and !==
