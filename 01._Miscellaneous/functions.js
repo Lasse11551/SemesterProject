@@ -42,5 +42,5 @@ const runningResult = genericActionPerformer("Alex", running);
 console.log(runningResult);
 
 // assignment create a single line below that print "Louis is eating"
-
+// In both we pass the funtion reference directly instead of packing it into a variable
 console.log(genericActionPerformer("Louis", (name) => `${name} is eating`));
