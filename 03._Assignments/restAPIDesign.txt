@@ -1,0 +1,7 @@
+HTTP Method        Endpoint
+GET                /drinks
+GET                /drinks/:id
+POST               /drinks
+PUT                /drinks/:id
+DELETE             /drinks/:id
+PATCH              /drinks/:id

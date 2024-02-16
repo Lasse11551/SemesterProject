@@ -1,7 +1,9 @@
-//const express = require("express");
-//const app = express();
+const express = require("express");
+const app = express();
 
-const app = require("express")();
+//const app = require("express")();
+
+app.use(express.json());
 
 //route
         //endpoint
@@ -53,6 +55,23 @@ app.get("fillUpWallet/:depositAmount", (req, res) => {
 
     balance += depositAmount;
     res.send({ data: `Your new balance is ${balance}` })
+});
+
+//hvad jeg skriver i url - http://localhost:8080/saySomethingNiceAboutMe/hello?handsome=very&tall=indeed&cool=always
+app.get("/saySomethingNiceAboutMe/:greeting", (req, res) =>{
+    console.log(req.params.greeting)
+    console.log(req.query)
+    //if the client defines handsome as very then return "thanks cool cat"
+    //otherwise say "ain't no thang"
+    if(req.query.handsome !== "very"){
+        return res.send({data: "ain't no thang"})
+    } 
+    return res.send({data: "thanks cool cat"})
+});
+
+app.post("/postman", (req, res) => {
+    console.log(req.body);
+    res.send(req.body); //med req.body vil man altid få et tomt objekt tilbage, men amn skal initialisere body_parser som er i node_modules. Dette gøres i toppen af dokumentet
 });
 
 app.get("/page", (req, res) => {

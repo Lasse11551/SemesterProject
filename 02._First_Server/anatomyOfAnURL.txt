@@ -1,0 +1,9 @@
+Protocol    domain     endpoint
+https://www.google.com/search?client=safari&rls=en&q=test&ie=UTF-8&oe=UTF-8
+      sub-domain   top-level domain
+
+path    query string
+/search?client=safari&rls=en&q=test&ie=UTF-8&oe=UTF-8
+        query paramaters
+
+path variable
