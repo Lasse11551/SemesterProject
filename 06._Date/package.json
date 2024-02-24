@@ -1,0 +1,27 @@
+{
+  "name": "date",
+  "version": "0.0.1",
+  "description": "Working with date in javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lasse11551/SemesterProject.git"
+  },
+  "keywords": [
+    "date",
+    "Javascript",
+    "Express"
+  ],
+  "author": "Lysskov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lasse11551/SemesterProject/issues"
+  },
+  "homepage": "https://github.com/Lasse11551/SemesterProject#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

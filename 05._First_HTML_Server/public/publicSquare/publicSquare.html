@@ -7,6 +7,17 @@
 </head>
 <body>
     <h1>Hi</h1>
+    <h3>Monument</h3>
+
+    <h1>Known people</h1>
+    <h3 id="known-people-amount"></h3>
     
+    <script>
+
+        const peopleAmountH3 = document.getElementById("known-people-amount")
+        fetch("/knownpeople")
+        .then((response) => response.json())
+        .then((data) => peopleAmountH3.textContent = data.data)
+    </script>
 </body>
 </html>

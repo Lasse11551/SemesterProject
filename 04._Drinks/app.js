@@ -2,11 +2,15 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json());
+
 const drinks = [
     { id: 1, name:"Mojito"},
     { id: 2, name:"Isbjørn"},
     { id: 3, name:"Old fashion"},
 ];
+
+let currentId = 3;
 
 app.get("/drinks", (req, res) => {
     res.send({data: drinks});
@@ -18,7 +22,7 @@ app.get("/drinks/:id", (req, res) => {
     const id = Number(req.params.id);
     const drink = drinks.find(item => item.id ===id);
     if(!drink) {
-        res.staus(404).send({data: "Drink not found"})
+        res.staus(404).send({ error: "Drink not found"})
     } else {
         res.send({data: drinks})
     }
@@ -26,6 +30,7 @@ app.get("/drinks/:id", (req, res) => {
 
 app.post("/drinks", (req, res) => {
     const newDrink = req.body; // Assuming the drink data is sent in the request body
+    newDrink.id = ++currentId; //prefix increment id ved at sætte "++" foran ellers ville id stadig være 3 eller brug nextId++
     drinks.push(newDrink);
     res.status(201).send({ data: newDrink });
 })
@@ -42,26 +47,29 @@ app.put("/drinks/:drink/:id", (req, res) => {
     }
 })
 
-app.patch("/drinks/:drink/:id", (req, res) => {
+app.patch("/drinks/:id", (req, res) => {
     const id = Number(req.params.id);
     const updatedProperties = req.body; // Assuming the updated properties are sent in the request body
     const index = drinks.findIndex(item => item.id === id);
-    if (index !== -1) {
-        drinks[index] = { ...drinks[index], ...updatedProperties };
-        res.send({ data: drinks[index] });
+    if (foundDrinkIndex === -1) {
+        res.status(404).send({ error: `Drink not found by id: ${id}` });
     } else {
-        res.status(404).send({ data: "Drink not found" });
+        const originalDrink = drinks[index];
+        const drinkToUpdate = { ...originalDrink, ...updatedProperties, id: id };
+        drinks[index] = drinkToUpdate
+        res.send({ data: drinkToUpdate });
     }
 })
 
 app.delete("/drinks/:id", (req, res) => {
+    //findIndex, ret index / -1, splice
     const id = Number(req.params.id);
-    const index = drinks.findIndex(item => item.id === id);
-    if (index !== -1) {
-        const deletedDrink = drinks.splice(index, 1);
-        res.send({ data: deletedDrink });
+    const foundDrinkIndex = drinks.findIndex((drink) => drink.id === id);
+    if (foundDrinkIndex === -1) {
+        res.status(404).send({ error: `Drink not found by id: ${id}` });
     } else {
-        res.status(404).send({ data: "Drink not found" });
+        const deletedDrink = drinks.splice(foundDrinkIndex, 1);
+        res.send({ data: deletedDrink });
     }
 })
 
