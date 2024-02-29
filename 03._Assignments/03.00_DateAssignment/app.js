@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 
-app.get("/datesPage", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/dates.html");
 })
 
