@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .overskrift {
+            color: white;
+            padding-left: 585px;
+        }
+
+        .dateContainer {
+            display:flex;
+            justify-content: space-evenly;
+            padding-top: 100px;
+        }
+
+        .box {
+            width: 225px;
+            height: 150px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .selectboxcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .selectbox {
+            width: 225px;
+            height: 150px;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .selectbox{
+            width: 675px;
+            height: 150px;
+            background-color: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .answer {
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="overskrift">Different timezones</h1>
+
+    <div class="dateContainer">
+        <div class="box" id="box1">
+            <h4>Time till next lecture</h4>
+            <div class="countdown" id="lectureCountdown"></div>
+        </div>
+        <div class="box" id="box2">
+            <h4>Time till my birthday</h4>
+            <div class="countdown" id="birthdayCountdown"></div>
+        </div>
+        <div class="box" id="box3">
+            <h4>Time till we graduate</h4>
+            <div class="countdown" id="graduationCountdown"></div>
+        </div>
+    </div>
+
+    <div class="selectboxcontainer" id="box4">
+        <div class="selectbox" id=box4">
+
+            <h4>Select a country</h4>
+            
+            <label for="cities"></label>
+
+            <select name="cities" id="cities" placeholder="Select a city">
+                <option disabled selected value="">Select an option</option>
+                <option value="Europe/Copenhagen">Copenhagen</option>
+                <option value="Asia/Shanghai">Beijing</option>
+                <option value="Europe/Moscow">Moscow</option>
+                <option value="America/New_York">New York</option>
+            </select>
+
+            <div class="answer">Select a city</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch date information from the backend
+        async function fetchDateInfo() {
+            const response = await fetch('/dates');
+            const data = await response.json();
+            return data.data;
+        }
+        //<---------- put timezones into the dropmenu ---------->
+        // Function to update the displayed time based on the selected city
+        function updateTime(city) {
+            const dateInfo = dates.find(info => info.timezone === city);
+            const answerDiv = document.querySelector('.answer');
+            answerDiv.textContent = dateInfo ? dateInfo.date : "No information available";
+        }
+
+        // Add event listener to the select box
+        document.getElementById('cities').addEventListener('change', function() {
+            const selectedCity = this.value;
+            updateTime(selectedCity);
+        });
+
+        
+        // <----------------- end of dropdown menu ------------->
+
+        // Calculate time remaining for each event
+    async function calculateTimeRemaining() {
+        const currentDate = new Date();
+        const timezone = 'Europe/Copenhagen'; // Assuming Copenhagen timezone
+        const dateInfos = await fetchDateInfo();
+        
+        const lectureDate = new Date('2024-03-01T08:30:00');
+        const birthdayDate = new Date('2024-03-31T00:00:00');
+        const graduationDate = new Date('2025-01-01T00:00:00');
+        
+        const offsets = {
+            lecture: lectureDate.getTimezoneOffset(),
+            birthday: birthdayDate.getTimezoneOffset(),
+            graduation: graduationDate.getTimezoneOffset()
+        };
+
+        const adjustTimezone = (date, offset) => {
+            const utcTime = date.getTime() + (offset * 60000);
+            return new Date(utcTime + (currentDate.getTimezoneOffset() * 60000));
+        };
+
+        const lectureTimeRemaining = adjustTimezone(lectureDate, offsets.lecture) - currentDate;
+        const birthdayTimeRemaining = adjustTimezone(birthdayDate, offsets.birthday) - currentDate;
+        const graduationTimeRemaining = adjustTimezone(graduationDate, offsets.graduation) - currentDate;
+
+        const formatTimeRemaining = (timeRemaining) => {
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            return `${days} days ${hours} hours`;
+        };
+
+        document.getElementById('lectureCountdown').textContent = formatTimeRemaining(lectureTimeRemaining);
+        document.getElementById('birthdayCountdown').textContent = formatTimeRemaining(birthdayTimeRemaining);
+        document.getElementById('graduationCountdown').textContent = formatTimeRemaining(graduationTimeRemaining);
+    }
+
+        // Fetch date information when the page loads
+        let dates;
+        window.onload = async function() {
+            dates = await fetchDateInfo();
+        };
+
+        calculateTimeRemaining();
+    </script>
+</body>
+</html>
