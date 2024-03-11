@@ -12,6 +12,20 @@ app.get("/publicsquare", (req, res) => {
     res.sendFile(__dirname + "/public/publicSquare/publicSquare.html")
 });
 
+app.get("/tresuretrove", (req, res) => {
+    res.send({ data: "You found it!"});
+})
+
+app.get("/secretpassphrase", (req, res) => {
+    //Task: Get the passphrase from the query string and compare it below
+
+    if(req.query.passphrase !== "SesameOpenUp") {
+        res.status(400).send({ data: "Wrong passphrase"})
+    } else {
+        res.redirect("/treasuretrove");
+    }
+})
+
 //task take a name from the query string and greet the person if you know them
 //Task otherwise say, "hello stranger"
 

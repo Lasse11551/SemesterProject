@@ -3,23 +3,35 @@ import express from "express";
 const app = express();
 app.use(express.static("public"));
 
-import path from "path";
 import getMatches from "./util/matches.js";
 
+import { homepagePage, contactPage, matchesPage } from "./util/readPages.js";
+
+//Serverside rendering 
+//At læse en side først og sætte den ind i send gør det: hurtigere, fjerner CORS problemer, mindre ressourcer brug for client rendering
+
+//============HTML===============
+
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/pages/homepage/homepage.html"))
+    res.send(homepagePage)
 })
 
 app.get("/matches", (req, res) => {
-res.sendFile(path.resolve("public/pages/matches/matches.html"))
+    res.send(matchesPage)
 })
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.resolve("public/pages/contact/contact.html"))
+    res.send(contactPage)
 })
 
-app.get("/api/matches", (req, res) => {
-    const matches = getMatches();
+app.get("/page", (req, res) => {
+    res.send("<div><h1>jfdjfndjnfdf</h1><h2>fkdfmkdmfd</h2></div>");
+  })
+
+// ============API==================
+
+app.get("/api/matches", async (req, res) => {
+    const matches = await getMatches();
     res.send({ data: matches });
   });
 
