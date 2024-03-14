@@ -1,0 +1,14 @@
+footer {
+    background-color: black;
+    color: white;
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly; /* Space items evenly across the footer */
+    align-items: center; /* Center items vertically */
+  }
+  
+  footer p {
+    margin: 0; /* Remove default margin */
+  }
