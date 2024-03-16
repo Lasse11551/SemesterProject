@@ -1,11 +1,97 @@
 <div class="content">
     <div class="subject-component">
         <h2 class="subject-header">GIT</h2>
-        <p class="subject-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse fugiat voluptatem dolor sint similique hic blanditiis doloribus! Ducimus molestias soluta sequi rerum numquam perferendis, ab accusamus voluptates molestiae quis ut!</p>
+        <p class="subject-text">Git er et versionstyringssystem som kan 
+            bruges til at lave git-repositories som man kan dele med andre softwareudviklere. 
+            Her i kan man lave branching så man uforstyret og uden risiko for at 
+            ødelægge andre funktioner og systemer, kan udvikle sin kode. For at pushe sin kode 
+            til sit repository kan man bruge disse kommandoer i terminalen.
+            <ul>
+                <li>git add .</li>
+                <li>git add -A (Stager alle ændringer til commit)</li>
+                <li>git commit -m "Beskrivelse af mit commit"</li>
+                <li>git push origin <"branch-navn"></li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Node JS</h2>
+        <p class="subject-text">Node er et open-source runtime environment som kan bruges til udføre 
+            javascript kode. Det bruges ofte til at brugge backenden for en web applikation, i forhold til API'er. 
+            Node er meget skalerbart, kan klare meget data intensive situationer og kører real-time backend services.
+            Node er meget hurtigt at sætte op og er rigtig godt til at udarbejde prototyper. 
+            Dertil er det hurtigere at udarbejde applikationer i, kræver mindre kode og 
+            filer og det har en hurtigere response tid. Dertil har det er meget stort offentligt open-source 
+            libary, som gør at du kan genbruge andres kode, så alt ikke skal bygges af en selv.
+            For at køre projekter med node js skal man opsætte et projekt med følgende mapper og filer:
+            <ul>
+                <li>node_modules - som hentes ned ved at bruge følgende kommando - npm install express</li>
+                <li>package-lock.json</li>
+                <li>package.json - her henter man express ned som en dependency</li>
+                <li>app.js - hvor man her initialiserer express og opsætter en port som den skal lytte på</li>
+            </ul></p>
+            <img src="./assets/images/AppogExpress.png" height="200" width="800">
+            <p>Derefter bruge man kommandoen "node app.js" for at køre serveren</p>
     </div>
 
     <div class="subject-component">
         <h2 class="subject-header">Javascript datatypes</h2>
-        <p class="subject-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsa assumenda culpa perspiciatis eum reiciendis veniam? Nisi, cumque. Qui doloribus labore, ullam ducimus blanditiis aspernatur quidem ipsa velit eum nulla.</p>
+        <p class="subject-text">Der findes følgende datatyper i javascript:
+            <ul>
+                <li>String</li>
+                <li>Number</li>
+                <li>Bigint</li>
+                <li>Boolean</li>
+                <li>Undefined</li>
+                <li>Null</li>
+                <li>Symbol</li>
+                <li>Object - kan indeholde et objekt, et array, en date</li>
+            </ul>
+            <img src="./assets/images/Datatyper.png" height="350" width="350">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">REST API</h2>
+        <p class="subject-text">REST API står for, Representational State Transfer Application 
+            Programming Interface. Det er en stil til at designe netværksbaserede applikationsgrænseflader.
+            Det er hvad der bliver kaldt når man gerne vil fremvise en specifik side, opdatere/slette/tilføje noget i databasen.
+            Her kigger man på 5 forskellige HTTP metode kald, GET, POST, PUT, PATCH og DELETE.</p>
+            <img src="./assets/images/RestApiDesign.png" height="200" width="300">
+            <br>
+            <p>Når man navngiver sit endpoint giver man det samme navneord og i flertal, da det gør det mere læsbart.</p>
+            <h4>GET metode til at hente alle drinks</h6>
+            <img src="./assets/images/GetAllDrinks.png" height="200" width="400">
+            <br>
+            <h4>GET metode til at hente drinks ud fra Id</h6>
+            <img src="./assets/images/GetDrinksById.png" height="200" width="400">
+            <br>
+            <h4>POST metode til at tilføje en drinks til database</h6>
+            <img src="./assets/images/PostDrinks.png" height="200" width="400">
+            <br>
+            <h4>PUT metode til at opdatere alle variabler på en drink ud fra et Id</h6>
+            <img src="./assets/images/PutDrinks.png" height="200" width="400">
+            <br>
+            <h4>PATCH metode til at opdatere dele af en drink ud fra et Id</h6>
+            <img src="./assets/images/PatchDrinks.png" height="200" width="400">
+            <br>
+            <h4>DELETE metode til at en drinks fra databasen ud fra et Id</h6>
+            <img src="./assets/images/DeleteDrinks.png" height="200" width="400">
+            <br>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Type coercion and how to avoid it</h2>
+        <p class="subject-text">Coercion er en proces, hvor et sprog automatisk konverterer en værdi fra en 
+            datatype til en anden. I JavaScript forekommer coercion ofte i 
+            forbindelse med operationer eller sammenligninger, hvor værdier med forskellige datatyper interagerer. Der er 2 typer coercion:
+        <ul>
+            <li>Implicit coercion - hvor det forekommer automatisk når javascript konverterer værdier fra en datatype til en anden, uden at blive bedt om det af udvikleren</li>
+            <li>Explicit coercion - Dette er coercion hvor man benytter sig af indbyggede funktioner til at konvertere en værdis datatype til en anden. F.eks. parseInt()</li>
+        </ul>
+        </p>
+        <p>Her er nogle eksempler på coercion:</p>
+        <img src="./assets/images/Coercion.png" height="500" width="800">
     </div>
 </div>
