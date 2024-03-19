@@ -1,0 +1,143 @@
+<div class="content">
+    <div class="subject-component">
+        <h2 class="subject-header">Scoping and const, let, var in javascript</h2>
+        <p class="subject-text">
+            <h4>Scope</h4>
+            Scoping kan blive set på i forhold til 3 emner:
+            <ul>
+                <li>Block scope</li>
+                <li>Function scope</li>
+                <li>Global scope</li>
+            </ul>
+            <h4>Block scope</h4>
+            Variabler som er deklereret inde i en block kan ikke tilgås udenfor blocken
+            <img src="./assets/images/BlockScopeLet.png">
+            <br>
+            Dertil kan man også kigge på det i forhold til til "var", hvor disse regler ikke gælder
+            <br>
+            <img src="./assets/images/BlockScopeVar.png">
+            <br>
+            <h4>Function scope</h4>
+            Her skaber man et nyt scope som er et scope inde i funktionen, så de variabler der bliver lavet kun kan bruges inde i funktionen
+            <br>
+            <h4>Global scope</h4>
+            Det er når man deklererer variabler udenfor funktioner eller lignende, så hedder det globale variabler. Disse kan bruges f.eks. inde i funktioner eller andet. Disse bliver også kun loadet en gang pr. server start
+            <br>
+            <h4>Var</h4>
+            Var er brugt til at erklære en variabel med værdi. En var variabel navn inde i en funktion, kan have det samme variabel navn som i en udenfor en funktion. Var variabler har ikke block scope. Er altid global scope. Med var kan der komme uforudsete sideeffekter.
+            <br>
+            <h4>Const</h4>
+            Const er også brugt til at erklære en variabel med en værdi. Const bruges når man ikke vil have a værdien skal ændres efter initialisering. Dog skal man være opmærksom på at, hvis man deklererer et objekt som const, kan værdierne som dette objekt indeholder stadig ændres.
+            <br>
+            <br>
+            <img src="./assets/images/ConstVariabel.png" height="200" width="800">
+            <br>
+            <img src="./assets/images/ConstObjektVariabel.png" height="200" width="800">
+            <br>
+            <h4>Let</h4>
+            Let er også brugt til at erklære en variabel med værdi. Let er begrænset til det omfang den er deklereret i. Man kan ikke dublikere deklaration af en let i samme scope.
+            <br>
+            <br>
+            <img src="./assets/images/VarConstLet.png" height="200" width="800">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Advanced functions in javascript</h2>
+        <p class="subject-text">
+            <h4>The new function</h4>
+            "New" functionen gør at man lave en instance af et bruger defineret objekt type.
+            <br>
+            <img src="./assets/images/TheNewFunction.png">
+            <br>
+            <h4>Immediately invoked function (IIFE)</h4>
+            IIFE bruges til at skabe et scoepe omkrign en blok kode og derefter udføre det med det samme når det bliver defineret. For at gøre det at gøre det til en function expression, kan man sætte det til et variabel.
+            Ved at bruge IIFE undgår vi at påvirke det globale omfang.
+            <br>
+            <img src="./assets/images/IIFE.png">
+            <br>
+            <h4>Arrow functions</h4>
+            Arrow function refererer til anonyme funktioner som har deres egen syntax, som skaber en simplere og kortere måde at lave funktioner på. Dog har arrow funktioner ikke deres egen "this" værdi
+            <br>
+            <img src="./assets/images/ArrowFunction.png">
+            <br>
+            <h4>The call method</h4>
+            Metoden call() tillader, at en funktion/metode, som tilhører ét objekt, kan tildeles og kaldes for et andet objekt.
+            call() giver en ny værdi til this for funktionen/metoden.
+            Med call() kan du skrive en metode én gang og derefter arve den i et andet objekt, uden at skulle omskrive metoden for det nye objekt.
+            <br>
+            <img src="./assets/images/TheCallMethod.png">
+            <br>
+            <h4>The apply method</h4>
+            Metoden apply() kalder en funktion med en given this-værdi og argumenter, der er angivet som et array.
+            Samme syntaks som call, forskellen er, at call accepterer en argumentliste, mens apply accepterer et enkelt array af argumenter.
+            <br>
+            <img src="./assets/images/TheApplyMethod.png" height="200" width="800">
+            <br>
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Callback functions</h2>
+        <p class="subject-text">Callback funktioner er en referencefunktion, som bliver sendt som et argument 
+            til en anden funktion. Derefter vil man kunne bruge funktion som man gav som 
+            parameter inde i funktionen. Dette er godt hvis man gerne vil have at en 
+            specifik funktion bliver udført når noget sker. Dette giver mulighed for at 
+            kunne udføre asynkrone operationer. Dette er især godt når man skal hente data. 
+            I stedet for at blokere eksekveringen af sin kode, kan man bruge callback funktionen 
+            når dataen er blevet hentet.
+            <img src="./assets/images/CallbackFunction.png" height="350" width="800">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Package.json</h2>
+        <p class="subject-text">Dette er en fil som bliver brugt Node.js projekter og er med til at 
+            beskrive projektet metadata og dependencies. Dette er en vigtig fil som håndterer node.js-applikationer 
+            og biblioteker. Man opsætter det ved at starte med at sætte et sæt tuborg klammer, 
+            også indsætter du f.eks. dependecies, også de følgende dependencies du skal bruge med version tilknyttet.
+            I en package.json fil vil man kunne finde ting som:
+            <ul>
+                <li>Navn og version</li>
+                <li>Dependecies - installeres ved hjælp af npm install i terminalen</li>
+                <li>Dine egne script som man kan udvikle - kan køres med denne kommando "npm run "navnet på dit script""</li>
+            </ul> 
+            <br>
+            <img src="./assets/images/packagejson.png">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Create server instance with express</h2>
+        <p class="subject-text">
+            <ul>
+                <li>1 linje: Henter express fra ens package.json, som man har hentet fra node_moduels, og sætter det til variablen express</li>
+                <li>2 linje: Initialicerer express, som app</li>
+                <li>4-5 linje: Sætter appen til at lytte på port 8080</li>
+            </ul>
+            <br>
+            <img src="./assets/images/AppogExpress.png" height="250" width="800">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Send data with GET over HTTP in express</h2>
+        <p class="subject-text">
+            App bruger "get" som er til for at sende data. "/drinks" er endpointet. Req er til at modtage 
+            data når endpointet bliver kaldt, f.eks. hvis der skulle sendes et "Id" med som skulle bruges 
+            til at finde en specifik drink. Res er hvad der bliver sendt tilbage.
+            <br>
+            <img src="./assets/images/GetAllDrinks.png">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Node_modules</h2>
+        <p class="subject-text">Node_modules er en mappe, der oprettes, når du installerer afhængigheder 
+            til dit Node.js-projekt ved hjælp af værktøjer som npm. 
+            Denne mappe indeholder alle de tredjepartsmoduler, som dit projekt er afhængigt af. 
+            Når du installerer en pakke ved hjælp af npm, downloades pakken til 
+            node_modules-mappen sammen med eventuelle afhængigheder, den måtte have. Node_modules bliver 
+            tit tilføjet til .gitignore, da mappen kan blive meget stor.</p>
+    </div>
+</div>

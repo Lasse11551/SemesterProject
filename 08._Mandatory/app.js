@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 app.use(express.static("public"));
 
-import { homepagePage, introductionPage } from "./util/readPages.js";
+import { homepagePage, introductionPage, firstServerPage } from "./util/readPages.js";
 
 app.get("/", (req, res) => {
 res.send(homepagePage)
@@ -10,6 +10,10 @@ res.send(homepagePage)
 
 app.get("/introduction", (req, res) => {
 res.send(introductionPage)
+})
+
+app.get("/firstserver", (req, res) => {
+    res.send(firstServerPage)
 })
 
 const PORT = 8080;

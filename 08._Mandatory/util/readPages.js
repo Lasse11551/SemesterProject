@@ -11,3 +11,10 @@ export const introductionPage = renderPage(introduction, {
     tabsTitle:"Introduction",
     CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
 })
+
+const firstServer = readPage("./public/pages/firstServer/firstServer.html")
+export const firstServerPage = renderPage(firstServer, {
+    tabsTitle:"First Server",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+
