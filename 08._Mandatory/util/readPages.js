@@ -18,3 +18,15 @@ export const firstServerPage = renderPage(firstServer, {
     CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
 })
 
+const servingHtmlFiles = readPage("./public/pages/servinghtmlfiles/servinghtmlfiles.html")
+export const servingHtmlFilesPage = renderPage(servingHtmlFiles, {
+    tabsTitle:"Serving Html files",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+
+const time = readPage("./public/pages/time/time.html")
+export const timePage = renderPage(time, {
+    tabsTitle:"Time",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+
