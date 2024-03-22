@@ -1,22 +1,39 @@
 <div class="content">
     <div class="subject-component">
         <h2 class="subject-header">Export/Import</h2>
-        <p class="subject-text"></p>
+        <p class="subject-text">Vi bruger export og import til at til at skabe en bedre struktur i vores projekt og 
+            gøre koden vi har skrevet genbrugelig. Dette gælder både javascript filer, men også ting som html filer, f.eks. 
+            header og footer, da vi gerne vil undgå at disse skal skrive på alle sidder vi laver. Derfor importerer vi dem 
+            ind og samler dem enten med en templateEngine (SSR) eller bruger javascript (CSR) til at sætte dem ind. Dertil skal man sætte 
+            et "type: "module"" ind i vores script for at kunne gøre dette.</p>
     </div>
     <div class="subject-component">
         <h2 class="subject-header">Structure</h2>
-        <p class="subject-text"></p>
+        <p class="subject-text">
+            I forhold til at strukturere vores projekt opsætter man ting i forskellige mapper som f.eks. assets, component, pages, util osv. 
+            <br>
+            <img src="./assets/images/structureProject.png">
+            <br>
+            På denne måde opdeler css ind i assets, sammen emd images og javascript som skal bruges på forskellige sider. 
+            Under components har vi footer og header, siden de skal bruges på alle sider, så vi kan genbruge dem istedet for at skrive den samme kode 10 gange.
+            Så har vi pages som er her hvor vi har alle de individuelle sider vi gerne vil lave. Disse indeholder kun html som skal være i main, da vi som sagt har header og footer i component.
+            Senere bruger vi templatingEngine og readPages som er i util, til at samle header, sidens indhold og footer, samt at 
+            gøre det muligt at give en speciel tabsTitle og css links hvis de skal bruges på den side.
+        </p>
     </div>
     <div class="subject-component">
         <h2 class="subject-header">Express - static</h2>
-        <p class="subject-text"></p>
-    </div>
-    <div class="subject-component">
-        <h2 class="subject-header"></h2>
-        <p class="subject-text"></p>
-    </div>
-    <div class="subject-component">
-        <h2 class="subject-header"></h2>
-        <p class="subject-text"></p>
+        <p class="subject-text">
+            Dette er en måde at "serve" vores static filer til klient siden i browseren. Man benytter sig af denne linje kode:
+            <ul>
+                <li>app.use(express.static("public"))</li>
+            </ul>
+            <br>
+            Dette fjerne behovet for at benytte sig af __dirname, og gør at vi kan alde express håndtere de request vi får. 
+            "/public" gør at alle request automatisk vil starte med at kigge i public efter et endpoint eller path som passer til den request man har modtaget. 
+            Alt der er i /public kan tilgås herfra.
+            Det beskytter os også mod CORS-problemer ved at bruge Express' indbyggede sikkerhed til at levere statiske filer. 
+            Det giver os også katalogisolering. Hvis nogen forsøger at få fat i en af HTML-filerne uden for ruterne, kan de ikke gøre det.
+        </p>
     </div>
 </div>
