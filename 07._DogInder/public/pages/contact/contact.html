@@ -1,3 +1,17 @@
 
       <h1>ask the dog of wisdom</h1>
+
+      <!-- Task: create a dummy contact form i.e it should not do anythign just write the html-->
+      <form action="/api/contact" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" name="name" id="name" required placeholder="Your name">
+
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required placeholder="Your Email Address">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" cols="80" rows="10"></textarea>
+
+            <button aria-label="Submit Form">Submit</button>
+      </form>
     
