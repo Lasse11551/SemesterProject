@@ -1,0 +1,76 @@
+<div class="content">
+    <div class="subject-component">
+        <h2 class="subject-header">Client-side redirect vs server-side redirect</h2>
+        <p class="subject-text">
+            <h4>Client-side</h4>
+            Jeg har opsat en SSR på min hjemmeside, og benytter readPages og templatingEngine, som indlæser html'en fra min side og opsætter det ordenligt i forhold til css links osv.
+            <br>
+            <img src="./assets/images/readPages.png">
+            <br>
+            <img src="./assets/images/templatingEngine.png">
+            <br>
+            <br>
+            En klient-side omdirigering sker, efter at websiden er blevet indlæst i brugerens browser ved hjælp af JavaScript eller meta refresh tags indlejret i HTML-koden.
+            I denne metode, når en bruger besøger en bestemt webside, kan de se noget indhold kortvarigt, før de automatisk omdirigeres til en anden side uden at foretage yderligere anmodninger til serveren.
+            Disse omdirigeringer sker helt på brugerens enhed og involverer ikke nogen kommunikation med serveren.
+            <h4>Server-side</h4>
+            En server-side omdirigering, også kendt som en HTTP-omdirigering, implementeres på serveren og udløses før nogen indhold sendes til klientens browser.
+
+            Når en bruger anmoder om en bestemt URL, kontrollerer serveren, om der er konfigureret en omdirigeringsregel for den URL, og hvis det er 
+            tilfældet, returnerer den en HTTP-respons med en statuskode, der angiver, at den ønskede ressource enten er blevet 
+            flyttet permanent eller midlertidigt et andet sted hen. Browseren foretager derefter en ny anmodning til den omdirigerede URL.
+        </p>
+    </div>
+    <div class="subject-component">
+        <h2 class="subject-header">Ways to redirect</h2>
+        <p class="subject-text">
+            Redirect er omkring hvordan vi omdirigerer en bruger fra en side til en anden. Man kan redirect på client siden med window.location.href = "/enSide", eller man kan redirect på med serveren ved at bruge res.redirect("/enSide")
+            Client-side redirect kan reducere server load, imens at server-side redirect kan gøre det konsistent over forskellige platforme og anordninger. Med server side redirect kan vi også bruge data til f.eks. authentication eller bruger roller.
+        </p>
+    </div>
+    <div class="subject-component">
+        <h2 class="subject-header">Code placement</h2>
+        <p class="subject-text">
+            Skriv ren, kortfattet og effektiv kode. Undgå unødvendige operationer, unødvendige beregninger og for meget brug af hukommelse.
+            Benyt indbyggede sprogfunktioner og biblioteker optimeret til ydeevne i stedet for at udvikle dine egne metoder, som måske ikke er så godt optimeret.
+
+            Overvej placeringen af vigtige kodeafsnit inden for din applikationsarkitektur. Flyt for eksempel ofte benyttet kode tættere på indgangspunkterne for at minimere latentstid.
+            Design modulære og sammenhængende kodestrukturer for at lette genbrug, vedligeholdelse og optimering.
+        </p>
+    </div>
+    <div class="subject-component">
+        <h2 class="subject-header">CSR vs SSR</h2>
+        <p class="subject-text">
+            <h4>Load time</h4>
+            SSR: Server-Side Rendering kan potentielt reducere indlæsningstiden for brugeren, da HTML og andre ressourcer 
+            genereres på serveren og leveres til klienten som fuldt renderet sider. Dette kan resultere i hurtigere opfattet hastighed for brugerne.
+            <br>
+            <br>
+            CSR: Client-Side Rendering kan have længere indlæsningstider, især ved første besøg, da klienten 
+            først skal hente en minimal HTML-skabelon og derefter indlæse og udføre JavaScript for at dynamisk generere og indlæse indholdet.
+            <br>
+            <h4>Ressources spent</h4>
+            SSR: Server-Side Rendering bruger CPU-ressourcer på serveren til at generere HTML og dynamisk indhold. Dette sker typisk, 
+            når en bruger anmoder om en side. Serveren kan også belastes af caching-mekanismer for at reducere byrden for gentagne anmodninger.
+            <br>
+            <br>
+            CSR: Client-Side Rendering flytter en del af belastningen til klientens enhed, idet den kræver, at klienten henter, 
+            analyserer og udfører JavaScript for at generere indholdet. Dette kan medføre en kortvarig belastning, når siden først indlæses, 
+            men derefter kan visse handlinger udføres hurtigere uden at kræve yderligere serveranmodninger.
+            <h4>SEO</h4>
+            SSR: Server-Side Rendering har typisk fordele med hensyn til søgemaskineoptimering (SEO), da søgemaskiner let kan 
+            indeksere fuldt renderede HTML-sider. Dette gør det lettere for søgemaskiner at forstå og rangere indholdet på siden.
+            <br>
+            <br>
+            CSR: Client-Side Rendering kan præsentere udfordringer med hensyn til SEO, især hvis ikke implementeret korrekt. 
+            Søgemaskiner kan have svært ved at indeksere dynamisk genereret indhold eller indhold, der kræver JavaScript-eksekvering.
+            <h4>CORS</h4>
+            SSR: Server-Side Rendering udføres på serveren, og de resulterende ressourcer leveres direkte fra serveren til klienten. 
+            Dette betyder, at der normalt ikke er nogen CORS-problemer, da alle anmodninger kommer fra den samme oprindelsesdomæne.
+            <br>
+            <br>
+            CSR: Client-Side Rendering kan præsentere CORS-problemer, især hvis klienten forsøger at hente ressourcer fra forskellige domæner. 
+            Dette kan kræve konfiguration af serveren for at tillade de nødvendige CORS-anmodninger.
+        </p>
+    </div>
+</div>

@@ -30,3 +30,15 @@ export const timePage = renderPage(time, {
     CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
 })
 
+const ssr = readPage("./public/pages/ssr/ssr.html")
+export const ssrPage = renderPage(ssr, {
+    tabsTitle: "SSR",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+
+const asyncrousCode = readPage("./public/pages/async/async.html")
+export const asyncPage = renderPage(asyncrousCode, {
+    tabsTitle: "Asynchronous Code / Routers",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+

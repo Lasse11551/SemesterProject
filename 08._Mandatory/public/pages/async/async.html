@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="subject-component">
+        <h2 class="subject-header">Linting</h2>
+        <p class="subject-text"></p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Linting</h2>
+        <p class="subject-text">Der blev kort gennemgået hvad linting er i undervisningen. Det er et værktøj man kan benytte sig af for at overholde 
+            clean code princippet. Programmet gennemgår den kode du har skrevet og kan påpege hvor man glemt nogle annotationer eller generelle måder at skrive koden på.
+            Linters bruges i branchen til at analysere kode for fejl, stilistiske problemer og afvigelse fra kodestandarder. Det er bare et statistisk 
+            analytisk værktøj, så det kører ikke nogen kode, det læser bare koden.</p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Async code</h2>
+        <p class="subject-text">I forhold til async kode er der nogle forskellige områder vi kan møde det
+            <ul>
+                <li>Browser event handlers</li>
+                <li>Network Calls</li>
+                <li>Buffer</li>
+                <li>Databases</li>
+                <li>setTimeout og setInterval</li>
+            </ul>
+            <br>
+            En af løsningerne til at håndtere asynkron kode er at bruge tilbagekaldsfunktioner. Der er problemer inden for dette, da vi teoretisk set 
+            bare kunne opbygge en endeløs række af tilbagekaldsfunktioner, men det ville resultere i begrebet 'CallbackHell' eller 'Pyramiden af Dom', 
+            som vi gerne vil undgå.
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Promises</h2>
+        <p class="subject-text">Et promise er noget som man enten kan resolve eller rejecte. Grunden til at vi bruger setTimeout 
+            i de eksempler jeg kommer med er for at "fake" den tid som det normalt tager at hente noget data.
+            <img src="./assets/images/promise.png">
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Async/Await</h2>
+        <p class="subject-text">Async/await er bare "syntatic sugar" som du plejer at sige. De er den samme funktionalitet som et promise, men gør det bare mere læsbart
+            <img src="./assets/images/iifeAwait.png">
+            <br>
+            <br>
+            Her har vi en IIFE (Immediately Invoked Function Expression). Dette vil blive kaldt som det første, hvis vi indkapsler kode på denne måde. 
+            Men her kan vi se, at der bliver brugt async await. Hvis vi nogensinde skriver await, 
+            kræver det, at async er foran det, ellers vil vi få vist en fejl.
+        </p>
+    </div>
+
+    <div class="subject-component">
+        <h2 class="subject-header">Router</h2>
+        <p class="subject-text">
+            Til routing opbygger vi vores egen routing, sammensætter vores egne sider fra komponenter, bruger vores skabelonmotor til at linke de 
+            korrekte dokumenter og samler det hele i en router-klasse. Dette betød, at vi kunne fjerne det meste af indholdet fra vores 
+            app.js og resulterede i en mere håndterbar kode.
+            <br>
+            <img src="./assets/images/appRouting.png">
+            <br>
+            <img src="./assets/images/matchesRouter.png">
+        </p>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 app.use(express.static("public"));
 
-import { homepagePage, introductionPage, firstServerPage, servingHtmlFilesPage, timePage } from "./util/readPages.js";
+import { homepagePage, introductionPage, firstServerPage, servingHtmlFilesPage, timePage, ssrPage, asyncPage } from "./util/readPages.js";
 
 app.get("/", (req, res) => {
 res.send(homepagePage)
@@ -22,6 +22,14 @@ app.get("/servinghtmlfiles", (req, res) => {
 
 app.get("/time", (req, res) => {
     res.send(timePage)
+})
+
+app.get("/ssr", (req, res) => {
+    res.send(ssrPage)
+})
+
+app.get("/async", (req, res) => {
+    res.send(asyncPage)
 })
 
 const PORT = 8080;
