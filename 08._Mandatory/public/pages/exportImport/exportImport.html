@@ -29,7 +29,7 @@
                 <li>app.use(express.static("public"))</li>
             </ul>
             <br>
-            Dette fjerne behovet for at benytte sig af __dirname, og gør at vi kan alde express håndtere de request vi får. 
+            Dette fjerne behovet for at benytte sig af __dirname, og gør at vi kan lade express håndtere de request vi får. 
             "/public" gør at alle request automatisk vil starte med at kigge i public efter et endpoint eller path som passer til den request man har modtaget. 
             Alt der er i /public kan tilgås herfra.
             Det beskytter os også mod CORS-problemer ved at bruge Express' indbyggede sikkerhed til at levere statiske filer. 

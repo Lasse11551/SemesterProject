@@ -21,7 +21,48 @@
 
     <div class="subject-component">
         <h2 class="subject-header">Loop methods - map, filter, reduce</h2>
-        <p class="subject-text"></p>
+        <p class="subject-text">
+            <h4>Map</h4>
+            Map er en af de indbyggede funktioner som et array objekt har til rådighed. Den tillader dig at gennemløbe et array og bruge en callback funktion på hvert element.
+            Map metoden er god fordi at når den gennemgår hvert element, opretter den et nyt array og indsætter den nye værdi og returnerer det, uden at ændre på det gamle array.
+            Den udfører callback funktionen man har tilføjet sekventielt på hvert element
+            <br>
+            <img src="./assets/images/mapeksempel.png" width="800">
+            <br>
+            I dette eksempel bruger vi "map" metoden til at fordoble hvert tal i det oprindelige array. Den anonyme funktion, vi passer som parameter 
+            til "map", modtager hvert element i arrayet som "number" og returnerer værdien af at gange det med 2. Resultatet er derefter gemt 
+            i "doubledNumbers" arrayet.
+            <h4>Filter</h4>
+            Filter er endnu en indbygget funktion som et array objekt har tilrådighed. Filter-metoden giver dig mulighed for at filtrere et array 
+            baseret på en given betingelse og oprette et nyt array, der kun indeholder de elementer, der opfylder den betingelse.
+            <br>
+            <img src="./assets/images/filtermetode.png" width="800">
+            <br>
+            I dette eksempel bruger vi filter-metoden til at oprette et nyt array, der kun indeholder de ulige tal fra det oprindelige 
+            array. Den anonyme funktion, vi passer som parameter til filter, modtager hvert element i arrayet som number og returnerer 
+            true, hvis tallet er ulige, og false, hvis det er lige. Elementerne, hvor funktionen returnerer true, forbliver i det nye array, 
+            mens de, hvor funktionen returnerer false, fjernes.
+            <h4>Reduce</h4>
+            Reduce metoden er også indbygget i et array objekt. Den giver dig mulighed for at reducere et array til en enkelt værdi ved 
+            at udføre en reduceringsfunktion på hvert element af arrayet. Denne metode er effektiv når man skal reducere et array til en enkelt værdi, 
+            f.eks. en sum af tal eller konvertere et array til et objekt.
+            <br>
+            <img src="./assets/images/reducemetode.png" width="800">
+            <br>
+            I dette eksempel bruger vi reduce-metoden til at beregne summen af alle tal i arrayet. Vi starter med en initialValue på 0, og 
+            reduceringsfunktionen akkumulerer summen ved at tilføje hvert tal til accumulator. Resultatet er den endelige 
+            sum, som vi gemmer i variablen sum.
+            <h4>ForEach</h4>
+            ForEach er også en metode som et array har tilrådighed igennem deres indbyggede funktioner. Den gennemgår hvert element af arrayet og 
+            udfører en handling på hvert af dem. Dog emd forEach generer man ikke et nyt array og sætter de nye værdier ind. 
+            Man går over hvert element i det array man sender med og laver ændringer på det array. Det er en af de mere simple funktioner, 
+            dog kan den ikke udføre asynchronous funktioner. Den venter ikke på at en funktion er belvet udført på elementet.
+            <br>
+            <img src="./assets/images/foreachmetode.png" width="800">
+            <br>
+            I dette eksempel bruger vi forEach-metoden til at udskrive hvert tal i arrayet til konsollen. Den anonyme funktion, vi passer som 
+            parameter til forEach, modtager hvert element i arrayet som number og udskriver det til konsollen.
+        </p>
     </div>
 
     <div class="subject-component">
@@ -34,7 +75,7 @@
     <div class="subject-component">
         <h2 class="subject-header">POST request in express</h2>
         <p class="subject-text">
-            Når man arbejder med body, skal man initialisere bady_parser som er i node_modules. 
+            Når man arbejder med body, skal man initialisere body_parser som er i node_modules. 
             Dette gøres i toppen af dokumentet. Dette gør at den data du har sendt med på postet, vil kunne tilgås i body.
             <br>
             <br>

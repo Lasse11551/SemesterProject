@@ -30,6 +30,12 @@ export const timePage = renderPage(time, {
     CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
 })
 
+const exportimport = readPage("./public/pages/exportImport/exportImport.html")
+export const exportimportPage = renderPage(exportimport, {
+    tabsTitle: "Export and Import",
+    CSSLinks: '<link rel="stylesheet" href="/assets/css/main.css">'
+})
+
 const ssr = readPage("./public/pages/ssr/ssr.html")
 export const ssrPage = renderPage(ssr, {
     tabsTitle: "SSR",
