@@ -1,6 +1,7 @@
 import { Router } from "express"
-import escape from "escape-html"
 const router = Router();
+
+import escape from "escape-html"
 
 const messages = [];
 
@@ -10,6 +11,8 @@ router.get("/messages", (req, res) => {
 
 router.post("/messages", (req, res) => {
     messages.push(escape(req.body.message))
+
+    console.log(messages)
     res.send({ })
 })
 

@@ -3,6 +3,7 @@ const router = Router();
 
 router.get("/definesecretmessage", (req, res) => {
     const secretMessage = req.query.secretMessage;
+    
     if(secretMessage) {
         req.session.secretMessage = secretMessage
         res.send({ message: `You have defined the secret message as: ${secretMessage}`})

@@ -1,5 +1,11 @@
-import express from 'express';
 import "dotenv/config";
+//En anden måde at importere dotenv
+/* 
+import dotenv from "dotenv";
+dotenv.config();
+*/
+
+import express from "express";
 const app = express();
 
 app.use(express.static("public"));
@@ -29,13 +35,20 @@ const limiter = rateLimit({
 app.use(limiter)
 
 const authRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, 
+    windowMs: 15 * 60 * 1000, //15 min
 	limit: 3,
 	standardHeaders: 'draft-7', 
 	legacyHeaders: false, 
 })
 
 app.use("/auth", authRateLimiter)
+
+/* function ipLogger(req, res, next) {
+    console.log(req.ip);
+    next();
+} */
+
+//app.use(ipLogger)
 
 import helmet from "helmet"
 app.use(helmet)
@@ -52,18 +65,11 @@ app.use(sessionRouter)
 import xssRouter from "./routers/xssRouter.js"
 app.use(xssRouter)
 
-/* function ipLogger(req, res, next) {
-    console.log(req.ip);
-    next();
-} */
-
-//app.use(ipLogger)
-
 app.get("*", (req, res) => {
     res.status(404).send("<h1>Not Found</h1>")
 })
 
-app.call("*", (req, res) => {
+app.all("*", (req, res) => {
     res.status(404).send({ message: "Not found" })
 })
 
