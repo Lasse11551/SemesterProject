@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const resend = new Resend('re_4F33emdW_9iUSMey34qAicp6Kd27aL1Np');
+const resend = new Resend(process.env.API_KEY);
 
 
 function sendEmail() {
