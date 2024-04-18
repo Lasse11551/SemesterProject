@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.static("public"));
 
-app.use(express.json);
+app.use(express.json());
 
 
 import session from "express-session"
@@ -51,7 +51,7 @@ app.use("/auth", authRateLimiter)
 //app.use(ipLogger)
 
 import helmet from "helmet"
-app.use(helmet)
+app.use(helmet())
 
 import middlewareRouter from "./routers/middlewareRouter.js"
 app.use(middlewareRouter);
@@ -72,6 +72,7 @@ app.get("*", (req, res) => {
 app.all("*", (req, res) => {
     res.status(404).send({ message: "Not found" })
 })
+
 
 const PORT = process.env.PORT ?? 8080;
 app.listen(PORT, console.log("Server is running on port", PORT))

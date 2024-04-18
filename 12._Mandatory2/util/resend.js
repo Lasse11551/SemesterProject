@@ -1,10 +1,13 @@
 import { Resend } from 'resend';
 
-const resend = new Resend('re_c2ySjCCh_PZyA9ehN3C49t33t4FvgwtN6');
+const resend = new Resend('re_4F33emdW_9iUSMey34qAicp6Kd27aL1Np');
 
-resend.emails.send({
-  from: 'onboarding@resend.dev',
-  to: 'l.lysskov@gmail.com',
-  subject: 'Hello World',
-  html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
-});
+
+function sendEmail() {
+    resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: 'lassenodejseksamen@gmail.com',
+    subject: 'Hello World',
+    html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+    });
+}

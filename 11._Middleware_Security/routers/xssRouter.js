@@ -13,7 +13,7 @@ router.post("/messages", (req, res) => {
     messages.push(escape(req.body.message))
 
     console.log(messages)
-    res.send({ })
+    res.send({ data: messages})
 })
 
 export default router;
