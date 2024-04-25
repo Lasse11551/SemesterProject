@@ -9,7 +9,7 @@ app.use(express.static(path.resolve('../client/dist')));
 
 import session from "express-session";
 app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
