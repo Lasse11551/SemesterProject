@@ -1,10 +1,17 @@
 {
+  "scripts": {
+    "database-create": "node ./database/setupDatabase.js delete",
+    "database-update": "node ./database/setupDatabase.js"
+  },
   "type": "module",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "resend": "^3.2.0"
+    "helmet": "^7.1.0",
+    "resend": "^3.2.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }
