@@ -16,7 +16,7 @@ router.post("/signup", async (req, res) => {
     try {
 
         const result = await db.run(`INSERT INTO users (email, password) VALUES (?, ?)`, [email, hashedPassword]);
-        await sendEmailSignup();
+        await sendEmailSignup(email);
 
         res.send({ data: "User added successfully"}) // Assuming 'lastID' is returned by your database driver
     } catch (error) {
