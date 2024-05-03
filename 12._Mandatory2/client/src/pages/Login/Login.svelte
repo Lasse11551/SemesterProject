@@ -1,19 +1,31 @@
 <script>
+    import { useNavigate, useLocation } from "svelte-navigator";
     import toast, { Toaster } from "svelte-french-toast";
-    import { navigate } from "svelte-navigator";
     import { BASE_URL } from "../../stores/generalStore";
     import { fetchPost } from "../../util/api";
+    import { user } from "../../stores/generalStore";
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     let email = "";
     let password = "";
 
     async function handleLogin(event) {
         event.preventDefault();
-        const payload = { email, password };
+        const userData = { email, password };
 
-        fetchPost($BASE_URL + "/login", payload)
-        toast.success('Login Success')
-        navigate("/Login")
+        const response = await fetchPost($BASE_URL + "/login", userData)
+        if(response.data === "Invalid email or password") {
+          toast.error("Invalid email or password")
+        } else if(response.data && response.data.email) {
+          user.set({ email: response.data.email })
+          toast.success("Login Successful")
+          const from = ($location.state && $location.state.from) || "/Profile";
+          navigate(from, { replace: true });
+        } else {
+          toast.error("An error occurred. Please try again")
+        }
     }
 </script>
 <Toaster />
@@ -21,8 +33,8 @@
     <div class="form-container login-container">
         <h2 class="loginh2">Login</h2>
         <form on:submit={handleLogin}>
-            <input type="email" placeholder="Email" bind:value={email}>
-            <input type="password" placeholder="Password" bind:value={password}>
+            <input type="email" placeholder="Email" bind:value={email} required>
+            <input type="password" placeholder="Password" bind:value={password} required>
             <button type="submit">Login</button>
         </form>
     </div>

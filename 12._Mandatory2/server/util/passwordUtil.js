@@ -14,8 +14,10 @@ export async function login(user, password) {
 
     const isSame = await bcrypt.compare(password, user.password)
 
-    if (!isSame) {
-        throw new Error("Incorrect email or password")
+    if (isSame) {
+        return true;
+    } else {
+        return false;
     }
 }
 

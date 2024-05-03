@@ -19,8 +19,6 @@ app.use(session({
     cookie: { secure: false }
   }))
 
-  import emailRouter from "./routers/emailRouter.js"
-  app.use(emailRouter);
   import authRouter from "./routers/authRouter.js"
   app.use(authRouter);
 

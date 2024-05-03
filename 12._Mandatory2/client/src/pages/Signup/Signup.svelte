@@ -9,12 +9,17 @@
 
     async function handleSignup(event) {
         event.preventDefault();
-        const payload = { email, password }
+        const userData = { email, password }
 
-        fetchPost($BASE_URL + "/signup", payload)
-        toast.success("Signup succesful");
-        
-        navigate("/Login")
+        const result = await fetchPost($BASE_URL + "/signup", userData)
+        if(result.data === "User added successfully"){
+          toast.success("Signup succesful");
+          navigate("/Login")
+        } else if(result.data === "Missing required fields in body") {
+          toast.error("Both field must be filled")
+        } else if(result.data === "This email already exists in the database") {
+          toast.error("Email not available - Try again")
+        }
     }
 </script>
 <Toaster/>

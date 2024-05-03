@@ -13,7 +13,7 @@ export async function fetchGet(url) {
     return data;
 }
 
-export function fetchPost(url, body) {
+export async function fetchPost(url, body) {
     return fetch(url, {
         method: "POST",
         credentials: "include",
@@ -23,6 +23,6 @@ export function fetchPost(url, body) {
         body: JSON.stringify(body)
     })
     .then((response) => response.json())
-    .then((result) => result)
+    .then((result) => {return result})
     .catch((error) => console.error(error));
 }
