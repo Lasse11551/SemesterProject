@@ -12,3 +12,5 @@ export async function sendEmailSignup(email) {
     })
 }
 
+sendEmailSignup();
+
