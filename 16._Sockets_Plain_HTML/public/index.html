@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+</head>
+<body>
+    <h1>Colors</h1>
+
+    <input type="color" id="color-picker">
+    <button onclick="printColor()" id="color-button">Submit Color</button>
+
+    <!-- assignment when clicking the button console.log the color -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const colorPickerInput = document.getElementById("color-picker")
+        function printColor() {
+            const color = (colorPickerInput.value);
+            socket.emit("client-send-color", { data: color})
+        }
+
+        socket.on("server-sends-color", (data) => {
+            // only sends to the socket itself
+            document.body.style.backgroundColor = data.data;
+        })
+    </script>
+</body>
+</html>
